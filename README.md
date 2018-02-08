@@ -1,5 +1,7 @@
 # matrix
 
+A local movie/TV series file manager
+
 > a fine movie manager
 
 #### Build Setup
