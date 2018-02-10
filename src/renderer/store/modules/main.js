@@ -1,5 +1,6 @@
 const state = {
-  switchOn: false
+  switchOn: false,
+  windowMaximize: false
 }
 
 const mutations = {
@@ -8,6 +9,12 @@ const mutations = {
   },
   TURN_OFF_SWITCH (state) {
     state.switchOn = false
+  },
+  MAXIMIZE_WINDOW (state) {
+    state.windowMaximize = true
+  },
+  MAXIMIZE_WINDOW_RESTORE (state) {
+    state.windowMaximize = false
   }
 }
 
@@ -17,11 +24,18 @@ const actions = {
   },
   turnOffSwitch ({ commit }) {
     commit('TURN_OFF_SWITCH')
+  },
+  maximizeWindow ({ commit }) {
+    commit('MAXIMIZE_WINDOW')
+  },
+  maximizeWindowRestore ({ commit }) {
+    commit('MAXIMIZE_WINDOW_RESTORE')
   }
 }
 
 const getters = {
-  switchOn: state => state.switchOn
+  switchOn: state => state.switchOn,
+  windowMaximize: state => state.windowMaximize
 }
 
 export default {

@@ -1,9 +1,6 @@
 <template>
   <div>
     <div class="fluid-container">
-      <div class="buttons">
-        <label class="button button--1" @click="clicked">PLAY AGAIN</label>
-      </div>
       <div >
           <transition-group
                   name="staggered-fade"
@@ -48,28 +45,28 @@
 <script type="text/ecmascript-6">
   import { mapGetters, mapActions } from 'vuex'
   function addClass (obj, cls) {
-    var objClass = obj.className
+    var objClass = obj.className;
     // 获取 class 内容.
-    var blank = (objClass !== '') ? ' ' : ''
+    var blank = (objClass !== '') ? ' ' : '';
     // 判断获取到的 class 是否为空, 如果不为空在前面加个'空格'.
-    var added = objClass + blank + cls
+    var added = objClass + blank + cls;
     // 组合原来的 class 和需要添加的 class.
     obj.className = added
     // 替换原来的 class.
   }
   function hasClass (obj, cls) {
-    var objClass = obj.className
+    var objClass = obj.className;
     // 获取 class 内容.
     return (objClass.indexOf(cls) !== -1)
   }
   function removeClass (obj, cls) {
-    var objClass = ' ' + obj.className + ' '
+    var objClass = ' ' + obj.className + ' ';
     // 获取 class 内容, 并在首尾各加一个空格. ex) 'abc        bcd' -> ' abc        bcd '
-    objClass = objClass.replace(/(\s+)/gi, ' ')
+    objClass = objClass.replace(/(\s+)/gi, ' ');
     // 将多余的空字符替换成一个空格. ex) ' abc        bcd ' -> ' abc bcd '
-    var removed = objClass.replace(' ' + cls + ' ', ' ')
+    var removed = objClass.replace(' ' + cls + ' ', ' ');
     // 在原来的 class 替换掉首尾加了空格的 class. ex) ' abc bcd ' -> 'bcd '
-    removed = removed.replace(/(^\s+)|(\s+$)/g, '')
+    removed = removed.replace(/(^\s+)|(\s+$)/g, '');
     // 去掉首尾空格. ex) 'bcd ' -> 'bcd'
     obj.className = removed
     // 替换原来的 class.
@@ -97,7 +94,7 @@
         switchOn: 'switchOn'
       }),
       computedList: function () {
-        var vm = this
+        var vm = this;
         return this.list.filter(function (item) {
           return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
         })
@@ -119,23 +116,23 @@
       enter: function (el, done) {
         if (!this.switchOn) {
           if (!hasClass(el, 'shadowIn')) {
-            let delay = el.dataset.index * 150
+            let delay = el.dataset.index * 150;
             setTimeout(function () {
-              addClass(el, 'shadowIn')
+              addClass(el, 'shadowIn');
               el.addEventListener('webkitAnimationEnd', function () {
-                removeClass(el, 'shadowIn')
-                el.style.backgroundImage = 'url("https://www.itsnicethat.com/system/files/012017/588091df7fa44cc1b30020e3/images_slice_large/Abstract_Art_of_Design_Its_Nice_That.png")'
+                removeClass(el, 'shadowIn');
+                el.style.backgroundImage = 'url("https://www.itsnicethat.com/system/files/012017/588091df7fa44cc1b30020e3/images_slice_large/Abstract_Art_of_Design_Its_Nice_That.png")';
                 el.style.backgroundSize = 'contain'
               })
             }, delay)
           }
         } else {
           if (!hasClass(el, 'darkShadowIn')) {
-            let delay = el.dataset.index * 150
+            let delay = el.dataset.index * 150;
             setTimeout(function () {
-              addClass(el, 'darkShadowIn')
+              addClass(el, 'darkShadowIn');
               el.addEventListener('webkitAnimationEnd', function () {
-                removeClass(el, 'darkShadowIn')
+                removeClass(el, 'darkShadowIn');
                 el.style.backgroundImage = 'url("https://www.itsnicethat.com/system/files/012017/588091df7fa44cc1b30020e3/images_slice_large/Abstract_Art_of_Design_Its_Nice_That.png")'
                 el.style.backgroundSize = 'contain'
               })

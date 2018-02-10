@@ -10,6 +10,7 @@
   import { mapGetters, mapActions } from 'vuex'
   import boxGrid from './gridBoxes.vue'
   import toolBars from './toolBars.vue'
+
   export default {
     name: 'landing-page',
     data () {
@@ -22,8 +23,7 @@
       boxGrid,
       toolBars
     },
-    mounted () {
-    },
+    mounted () {},
     computed: {
       ...mapGetters({
         switchOn: 'switchOn'
